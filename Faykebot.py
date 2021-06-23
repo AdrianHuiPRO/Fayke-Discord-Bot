@@ -62,14 +62,6 @@ async def joinVC(ctx):
 async def leaveVC(ctx):
     await ctx.voice_client.disconnect()
 
-@bot.command()
-async def play(ctx, url):
-    server = ctx.message.guild
-    voice_client = server.voice_client
-    player = await voice_client.create_ytdl_player(url)
-    players[server.id] = player
-    player.start()
-
 def is_num(s):
     try:
         int(s)
